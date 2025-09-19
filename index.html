@@ -11,7 +11,7 @@
     .container{width:min(1200px,92%);margin:auto}
     .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:60px 0;position:relative}
     .hero img{width:100%;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
-    .btn{display:inline-block;background:#e63946;color:#fff;font-weight:700;padding:14px 24px;border-radius:10px;text-decoration:none;margin-top:18px}
+    .btn{display:inline-block;background:#e63946;color:#fff;font-weight:700;padding:14px 24px;border-radius:10px;text-decoration:none;margin-top:18px;cursor:pointer}
     .btn:hover{background:#d62828}
     .badge-offer{position:absolute;top:20px;left:20px;background:#e63946;color:#fff;padding:10px 18px;border-radius:50px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.2);animation:pulse 2s infinite}
     @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
@@ -26,9 +26,22 @@
     .cat-contract{background:#16a34a}
     .cat-office{background:#d97706}
     ul.template-list{columns:2;-webkit-columns:2;-moz-columns:2;list-style:📄 inside;padding:0;font-size:1.05rem;line-height:1.8}
+
+    /* Contact form */
+    .contact-wrap{background:#ffffffd9;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:24px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-grid .full{grid-column:1 / -1}
+    label{font-weight:700;font-size:.95rem;margin-bottom:6px;display:block}
+    input,select,textarea{width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:10px;font-size:1rem;background:#fff}
+    textarea{min-height:120px;resize:vertical}
+    .success,.error{display:none;margin-top:10px;padding:12px 14px;border-radius:10px;text-align:center;font-weight:700}
+    .success{background:#dcfce7;color:#166534}
+    .error{background:#fee2e2;color:#991b1b}
+
     footer{background:#0b1220;color:#94a3b8;padding:36px 0;text-align:center}
     footer a{color:#e2e8f0;text-decoration:none}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.template-list{columns:1}}
+
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.template-list{columns:1}.form-grid{grid-template-columns:1fr}}
   </style></head>
 <body>
 <div class="overlay">
@@ -38,7 +51,7 @@
     <div>
       <h1>৩৫০+ <span style="color:#e63946">ওয়ার্ড ফাইল টেমপ্লেট</span></h1>
       <p>স্টুডেন্ট থেকে ব্যবসায়ী—Assignment, Report, Invoice, Proposal, CV, Business Plan সহ অসংখ্য ডকুমেন্ট তৈরি করুন মাত্র কয়েক ক্লিকে।</p>
-      <a href="https://wa.me/8801714642113?text=আমি%20টেমপ্লেট%20কিনতে%20চাই" class="btn">এখনই সংগ্রহ করুন</a>
+      <a href="#contact" class="btn">এখনই সংগ্রহ করুন</a>
       <p style="margin-top:10px">মাত্র <b style="color:#e63946;font-size:1.5rem">৯৯ টাকা</b></p>
       <p style="margin-top:5px;color:#475569">WhatsApp: <b>01714642113</b></p>
     </div>
@@ -52,80 +65,55 @@
       <div class="card"><h3>⚡ সময় সাশ্রয়</h3><p>ঘন্টার কাজ মিনিটে—ডিজাইন নয়, কনটেন্টে ফোকাস করুন।</p></div>
       <div class="card"><h3>🎯 প্রফেশনাল লুক</h3><p>রিজিউম থেকে বিজনেস প্রপোজাল—সবকিছুতেই প্রফেশনাল আউটপুট।</p></div>
     </div>
-  </section>  <!-- Templates List Section -->  <section class="container">
-    <h2 style="text-align:center;margin-bottom:28px">আপনি যা যা পাবেন</h2><div class="category cat-cert">
-  <h3>📑 সনদ ও প্রত্যয়নপত্র</h3>
-  <ul class="template-list">
-    <li>ফ্যামিলি সার্টিফিকেট</li>
-    <li>পুনঃবিবাহ না হওয়া সনদ</li>
-    <li>চারিত্রিক সনদ</li>
-    <li>অনাপত্তিপত্র সনদ</li>
-    <li>মৃত্যু সনদ</li>
-    <li>ওয়ারিশ সনদ</li>
-    <li>ম্যারেজ সার্টিফিকেট</li>
-    <li>নমুনা সাক্ষরের প্রত্যয়নপত্র</li>
-    <li>একই ব্যক্তির প্রত্যয়নপত্র</li>
-    <li>অভিবাবকের অনুমতিপত্র</li>
-    <li>… এবং আরও অনেক কিছু</li>
-  </ul>
-</div>
-
-<div class="category cat-contract">
-  <h3>📝 চুক্তিপত্র ও দলিল</h3>
-  <ul class="template-list">
-    <li>জমি বিক্রি দলিল</li>
-    <li>ফ্ল্যাট বিক্রি দলিল</li>
-    <li>গাড়ি বিক্রি দলিল</li>
-    <li>দোকান/অফিস ভাড়া চুক্তি</li>
-    <li>বন্ধক চুক্তিনামা</li>
-    <li>বিভিন্ন চুক্তিনামা</li>
-    <li>অংশিদারী চুক্তিনামা</li>
-    <li>কাবিননামা (বাংলা/ইংলিশ)</li>
-    <li>বায়নাপত্র</li>
-    <li>ক্ষমতা অর্পন সনদ</li>
-  </ul>
-</div>
-
-<div class="category cat-office">
-  <h3>📂 অফিস ও ব্যক্তিগত ফর্ম</h3>
-  <ul class="template-list">
-    <li>সিভি</li>
-    <li>অভিজ্ঞতা সনদ</li>
-    <li>রিজাইন লেটার</li>
-    <li>যোগদান পত্র</li>
-    <li>আবেদন পত্র</li>
-    <li>মানি রিসিট</li>
-    <li>ক্যাশ মেমো</li>
-    <li>মাসিক/বাৎসরিক আয় সনদ</li>
-    <li>স্কুলের এডমিট</li>
-    <li>প্রশ্নপত্র ফরমেট</li>
-  </ul>
-</div>
-
-  </section>  <!-- Gallery Section -->  <section class="container">
-    <h2 style="text-align:center;margin-bottom:28px">টেমপ্লেট শোকেস</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600" alt="CV Template" />
-      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600" alt="Report Template" />
-      <img src="https://images.unsplash.com/photo-1551281044-8c5f6044ec2b?q=80&w=600" alt="Invoice Template" />
-      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=600" alt="Proposal Template" />
+  </section>  <!-- Customer/Order Form -->  <section class="container" id="contact">
+    <h2 style="text-align:center;margin-bottom:10px">কাস্টমার অর্ডার/কন্টাক্ট ফর্ম</h2>
+    <p style="text-align:center;margin-top:0;margin-bottom:24px;color:#475569">ফর্ম সাবমিট করলে তথ্য সরাসরি আপনার ইমেইলে চলে যাবে</p><div class="contact-wrap">
+  <form id="orderForm" class="form-grid" action="https://formspree.io/f/xpwjvpaq" method="POST">
+    <div>
+      <label for="name">নাম</label>
+      <input id="name" name="name" type="text" placeholder="আপনার নাম" required />
     </div>
-  </section>  <!-- Pricing Section -->  <section class="container" id="buy">
-    <h2 style="text-align:center;margin-bottom:28px">সাশ্রয়ী এক-টাইম মূল্য</h2>
-    <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:30px;border-radius:14px;text-align:center;position:relative">
-      <div class="badge-offer" style="position:absolute;top:-20px;right:-20px;left:auto">💥 Special Price: ৯৯ টাকা</div>
-      <h3>Complete Pack (350+ Templates)</h3>
-      <p style="font-size:2rem;color:#e63946;font-weight:700">মাত্র ৯৯ টাকা</p>
-      <p>ইনস্ট্যান্ট ডাউনলোড • লাইফটাইম অ্যাক্সেস</p>
-      <a href="https://wa.me/8801714642113?text=আমি%20টেমপ্লেট%20কিনতে%20চাই" class="btn">WhatsApp এ অর্ডার করুন</a>
+    <div>
+      <label for="phone">মোবাইল/WhatsApp</label>
+      <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required />
     </div>
-  </section>  <!-- Floating WhatsApp Button --><a href="https://wa.me/8801714642113?text=আমি%20350%2B%20Word%20Templates%20কিনতে%20চাই" target="_blank" rel="noopener"
-style="position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.2);font-weight:700;z-index:9999"> WhatsApp Now </a>
+    <div class="full">
+      <label for="email">ইমেইল</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required />
+    </div>
+    <div>
+      <label for="package">প্যাকেজ</label>
+      <select id="package" name="package">
+        <option value="complete">Complete Pack (350+)</option>
+        <option value="starter">Starter Pack (100+)</option>
+      </select>
+    </div>
+    <div>
+      <label for="quantity">পরিমান</label>
+      <input id="quantity" name="quantity" type="number" min="1" value="1" />
+    </div>
+    <div class="full">
+      <label for="message">বার্তা</label>
+      <textarea id="message" name="message" placeholder="যদি কোনো বিশেষ নির্দেশনা থাকে লিখুন..."></textarea>
+    </div>
+    <div class="full">
+      <button class="btn" type="submit">ফর্ম সাবমিট করুন</button>
+    </div>
+    <div id="formMsg" class="success full">✅ ধন্যবাদ! আপনার তথ্য পাওয়া গেছে। খুব শীঘ্রই যোগাযোগ করা হবে।</div>
+  </form>
+</div>
 
-  <!-- Footer -->  <footer>
+  </section>  <!-- Footer -->  <footer>
     <p>© <span id="year"></span> Word Templates. সর্বস্বত্ব সংরক্ষিত।</p>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();const form = document.getElementById('orderForm');
+const formMsg = document.getElementById('formMsg');
+form.addEventListener('submit', function(){
+  setTimeout(()=>{formMsg.style.display = 'block';}, 500);
+});
+
+  </script>
 </div>
 </body>
 </html>
