@@ -1,8 +1,154 @@
 <!doctype html>
 <html lang="bn">
-<head><meta charset="utf-8"><title>Demo Gallery</title></head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ডেমো গ্যালারি – ৩৫০+ Word File Templates</title>
+  <meta name="description" content="রেডি-মেড Word টেমপ্লেটগুলোর কিছু ডেমো প্রিভিউ দেখুন—সার্টিফিকেট, চুক্তিনামা, অফিস ডকুমেন্ট সহ আরও অনেক কিছু।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#e63946;
+      --ink:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --line:#e2e8f0;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans Bengali',sans-serif;color:var(--ink);background:#f6f8fb}
+    .container{width:min(1200px,92%);margin:auto}
+    .topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+    .topbar .inner{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0}
+    .brand{font-weight:800}
+    .btn{display:inline-block;background:var(--brand);color:#fff;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none}
+    .btn:hover{filter:brightness(.95)}
+    .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    header.hero{padding:26px 0 10px}
+    header.hero h1{margin:8px 0 6px}
+    header.hero p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0 60px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.04);cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.08)}
+    .card img{width:100%;height:220px;object-fit:cover;display:block}
+    .card .cap{padding:10px 12px;font-weight:600}
+    .ribbon{display:inline-block;background:#16a34a;color:#fff;padding:6px 10px;border-radius:999px;font-size:.9rem;margin-top:8px}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+    .lightbox.show{display:flex}
+    .lightbox .frame{position:relative;max-width:min(1100px,96vw);width:100%}
+    .lightbox img{width:100%;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+    .nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;gap:8px}
+    .prev{left:-10px}
+    .next{right:-10px}
+    .nav button{background:#ffffffcc;border:1px solid var(--line);backdrop-filter:blur(6px);padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:800}
+    .close{position:absolute;top:-12px;right:-12px;background:#ffffff;border:1px solid var(--line);border-radius:999px;width:40px;height:40px;font-weight:800;cursor:pointer}
+
+    /* Footer CTA */
+    .cta{position:sticky;bottom:12px;display:flex;justify-content:center}
+    .cta .wrap{background:#fff;border:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.08);border-radius:14px;padding:12px 16px;display:flex;gap:10px;align-items:center}
+    .price{color:var(--brand);font-weight:800;font-size:1.1rem}
+    footer{padding:40px 0;color:#94a3b8;text-align:center}
+    @media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .card img{height:180px}
+      .nav .hide-sm{display:none}
+    }
+  </style>
+</head>
 <body>
-  <h1>ডেমো গ্যালারি</h1>
-  <p>এখানে ছবি প্রিভিউ দেখানো হবে।</p>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container inner">
+      <div class="brand">৩৫০+ Word File Templates</div>
+      <div>
+        <a href="index.html#contact" class="btn">এখনই সংগ্রহ করুন</a>
+        <a href="index.html" class="btn btn-ghost" style="margin-left:8px">হোমে ফিরুন</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero container">
+    <h1>ডেমো গ্যালারি</h1>
+    <p>নিচে কিছু জনপ্রিয় টেমপ্লেটের প্রিভিউ দেখুন। প্রতিটি ফাইল ১০০% এডিটেবল—আপনার তথ্য বসালেই হয়ে যাবে!</p>
+    <span class="ribbon">🔥 সীমিত অফার — মাত্র ৯৯ টাকা</span>
+  </header>
+
+  <!-- Gallery -->
+  <main class="container">
+    <div class="grid" id="gallery">
+      <!-- ডেমো ইমেজগুলো /images ফোল্ডারে রাখুন (নিচের নাম অনুযায়ী) -->
+      <div class="card" data-full="images/demo1.jpg"><img src="images/demo1.jpg" alt="সার্টিফিকেট টেমপ্লেট — ডেমো"><div class="cap">সার্টিফিকেট — প্রফেশনাল</div></div>
+      <div class="card" data-full="images/demo2.jpg"><img src="images/demo2.jpg" alt="চুক্তিনামা টেমপ্লেট — ডেমো"><div class="cap">চুক্তিনামা — স্ট্যান্ডার্ড</div></div>
+      <div class="card" data-full="images/demo3.jpg"><img src="images/demo3.jpg" alt="ইনভয়েস টেমপ্লেট — ডেমো"><div class="cap">ইনভয়েস — আধুনিক</div></div>
+      <div class="card" data-full="images/demo4.jpg"><img src="images/demo4.jpg" alt="সিভি/রিজিউমে — ডেমো"><div class="cap">সিভি — ক্লিন ডিজাইন</div></div>
+      <div class="card" data-full="images/demo5.jpg"><img src="images/demo5.jpg" alt="অভিজ্ঞতা সনদ — ডেমো"><div class="cap">অভিজ্ঞতা সনদ</div></div>
+      <div class="card" data-full="images/demo6.jpg"><img src="images/demo6.jpg" alt="রিপোর্ট কভার — ডেমো"><div class="cap">রিপোর্ট কভার</div></div>
+      <div class="card" data-full="images/demo7.jpg"><img src="images/demo7.jpg" alt="প্রপোজাল — ডেমো"><div class="cap">বিজনেস প্রপোজাল</div></div>
+      <div class="card" data-full="images/demo8.jpg"><img src="images/demo8.jpg" alt="রসিদ/ক্যাশ মেমো — ডেমো"><div class="cap">রসিদ / ক্যাশ মেমো</div></div>
+    </div>
+  </main>
+
+  <!-- Sticky CTA -->
+  <div class="cta">
+    <div class="wrap">
+      <div>সব টেমপ্লেট একসাথে</div>
+      <div class="price">মাত্র ৯৯ টাকা</div>
+      <a href="index.html#contact" class="btn">এখনই সংগ্রহ করুন</a>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="frame">
+      <button class="close" id="lbClose" aria-label="Close">✕</button>
+      <img id="lbImg" src="" alt="ডেমো প্রিভিউ">
+      <div class="nav prev"><button id="prevBtn" title="আগের">‹ <span class="hide-sm">আগের</span></button></div>
+      <div class="nav next"><button id="nextBtn" title="পরের"><span class="hide-sm">পরের</span> ›</button></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> Word Templates. সর্বস্বত্ব সংরক্ষিত।</p>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox logic
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const closeBtn = document.getElementById('lbClose');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let idx = 0;
+
+    function openAt(i){
+      idx = i;
+      lbImg.src = cards[idx].dataset.full;
+      lb.classList.add('show');
+    }
+    function closeLb(){ lb.classList.remove('show'); }
+    function prev(){ idx = (idx - 1 + cards.length) % cards.length; lbImg.src = cards[idx].dataset.full; }
+    function next(){ idx = (idx + 1) % cards.length; lbImg.src = cards[idx].dataset.full; }
+
+    cards.forEach((c, i)=> c.addEventListener('click', ()=>openAt(i)));
+    closeBtn.addEventListener('click', closeLb);
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    lb.addEventListener('click', (e)=>{ if(e.target.id==='lightbox') closeLb(); });
+    document.addEventListener('keydown', (e)=>{
+      if(!lb.classList.contains('show')) return;
+      if(e.key==='Escape') closeLb();
+      if(e.key==='ArrowLeft') prev();
+      if(e.key==='ArrowRight') next();
+    });
+  </script>
 </body>
 </html>
