@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>৩৫০+ Word File Templates – মিনিটেই তৈরি করুন প্রফেশনাল ডকুমেন্ট</title>
-  <meta name="description" content="৩৫০+ রেডি-মেড Word টেমপ্লেট দিয়ে Assignment, Report, Invoice, Proposal, CV, সনদ, চুক্তিপত্র সহ সব ধরনের ডকুমেন্ট তৈরি করুন মিনিটেই। সময় বাঁচান, প্রফেশনাল আউটপুট পান।" />
+  <title>Microsoft Word, Photoshop, Illustrator</title>
+  <meta name="description" content="প্রায় ৮০০০+ রেডি-মেড Word টেমপ্লেট PSD, ILLUSTRATOR,Bannner, Poster  Assignment, Report, Invoice, Proposal, CV, সনদ, চুক্তিপত্র সহ সব ধরনের ডকুমেন্ট তৈরি করুন মিনিটেই। সময় বাঁচান, প্রফেশনাল আউটপুট পান।" />
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -378,52 +378,100 @@
     </div>
   </section>
 
-  <!-- Customer/Order Form -->
-  <section class="container" id="contact">
-    <h2 style="text-align:center;margin-bottom:10px">কাস্টমার অর্ডার/কন্টাক্ট ফর্ম</h2>
-    <p style="text-align:center;margin-top:0;margin-bottom:24px;color:#475569">ফর্ম সাবমিট করলে তথ্য সরাসরি আপনার ইমেইলে চলে যাবে</p>
-    <div class="contact-wrap">
-      <form id="orderForm" class="form-grid" action="https://formspree.io/f/xpwjvpaq" method="POST">
-        <div>
-          <label for="name">নাম</label>
-          <input id="name" name="name" type="text" placeholder="আপনার নাম" required />
+ <!-- Customer/Order Form -->
+<section class="container" id="contact">
+  <h2 style="text-align:center;margin-bottom:10px">কাস্টমার অর্ডার/কন্টাক্ট ফর্ম</h2>
+  <p style="text-align:center;margin-top:0;margin-bottom:18px;color:#475569">
+    পেমেন্ট করলে নিচে আপনার <b>Transaction ID (trxID)</b> লিখে সাবমিট করুন।
+  </p>
+
+  <div class="contact-wrap">
+    <form id="orderForm" class="form-grid" action="https://formspree.io/f/xpwjvpaq" method="POST">
+      <div>
+        <label for="name">নাম</label>
+        <input id="name" name="name" type="text" placeholder="আপনার নাম" required />
+      </div>
+      <div>
+        <label for="phone">মোবাইল/WhatsApp</label>
+        <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required />
+      </div>
+
+      <div class="full">
+        <label for="email">ইমেইল</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+      </div>
+
+      <div>
+        <label for="package">প্যাকেজ</label>
+        <select id="package" name="package">
+          <option value="word" data-price="79">Word Templates Pack (৳79)</option>
+          <option value="graphics" data-price="140">Graphics Templates Pack (৳140)</option>
+          <option value="visa" data-price="220">Visa Processing Course Files (৳220)</option>
+          <option value="combo" data-price="160">Word + Graphics Combo (৳160)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="quantity">পরিমান</label>
+        <input id="quantity" name="quantity" type="number" min="1" value="1" />
+      </div>
+
+      <!-- Payment Section -->
+      <div class="full" style="border-top:1px solid #e2e8f0;padding-top:12px;margin-top:6px">
+        <label style="margin-bottom:8px;display:block">পেমেন্ট অপশন</label>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <label style="display:flex;gap:6px;align-items:center">
+            <input type="radio" name="payment_method" value="bkash" id="pm_bkash" checked>
+            bKash
+          </label>
+          <label style="display:flex;gap:6px;align-items:center">
+            <input type="radio" name="payment_method" value="cash" id="pm_cash">
+            Cash (পরে পরিশোধ)
+          </label>
+
+          <label style="display:flex;gap:6px;align-items:center;margin-left:12px">
+            <input type="checkbox" id="hasPaid" name="has_paid">
+            আমি পেমেন্ট করেছি
+          </label>
         </div>
-        <div>
-          <label for="phone">মোবাইল/WhatsApp</label>
-          <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required />
+
+        <div id="trxWrap" style="display:none;margin-top:10px;gap:12px" class="form-grid">
+          <div>
+            <label for="trxid">bKash Transaction ID</label>
+            <input id="trxid" name="trxid" type="text" placeholder="ex: 8F5A1B2CD3"
+                   pattern="[A-Za-z0-9\-]{6,20}" />
+          </div>
+          <div>
+            <label for="paid_amount">পরিশোধিত টাকা (৳)</label>
+            <input id="paid_amount" name="paid_amount" type="number" min="1" placeholder="উদাহরণ: 79" />
+          </div>
         </div>
-        <div class="full">
-          <label for="email">ইমেইল</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div>
-          <label for="package">প্যাকেজ</label>
-          <select id="package" name="package">
-            <option value="word">Word Templates Pack (৳79)</option>
-            <option value="graphics">Graphics Templates Pack (৳140)</option>
-            <option value="visa">Visa Processing Course Files (৳220)</option>
-            <option value="combo">Word + Graphics Combo (৳160)</option>
-          </select>
-        </div>
-        <div>
-          <label for="quantity">পরিমান</label>
-          <input id="quantity" name="quantity" type="number" min="1" value="1" />
-        </div>
-        <div class="full">
-          <label for="message">বার্তা</label>
-          <textarea id="message" name="message" placeholder="যদি কোনো বিশেষ নির্দেশনা থাকে লিখুন..."></textarea>
-        </div>
-        <div class="full" style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn" type="submit" onclick="fbq('track','Lead');">ফর্ম সাবমিট করুন</button>
-          <a class="bkash" href="#" data-item="Form Top Pay" onclick="return payNow(this);">
-            <svg viewBox="0 0 24 24"><path d="M12 2c5.5 0 10 4.48 10 10s-4.5 10-10 10S2 17.52 2 12 6.5 2 12 2Z"/></svg>
-            বিকাশ পেমেন্ট
+
+        <p class="hint" style="color:#64748b;margin:8px 0 0">
+          প্রথমে “bKash এ পেমেন্ট” বাটনে গিয়ে টাকা পাঠিয়ে আসুন, এরপর এখানে <b>trxID</b> লিখে সাবমিট দিন।
+        </p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="bkash" href="#" onclick="return payNow(this);" data-item="Order Form Pay"
+             style="display:inline-flex;align-items:center;gap:8px;background:#e2136e;color:#fff;padding:10px 14px;border-radius:10px;font-weight:900;text-decoration:none">
+            <svg viewBox="0 0 24 24" width="18" height="18" style="fill:#fff"><path d="M12 2c5.5 0 10 4.48 10 10s-4.5 10-10 10S2 17.52 2 12 6.5 2 12 2Z"/></svg>
+            bKash এ পেমেন্ট
           </a>
+          <button class="btn" type="submit" style="margin:0">ফর্ম সাবমিট করুন</button>
         </div>
-        <div id="formMsg" class="success full">✅ ধন্যবাদ! আপনার তথ্য পাওয়া গেছে। খুব শীঘ্রই যোগাযোগ করা হবে।</div>
-      </form>
-    </div>
-  </section>
+      </div>
+
+      <div class="full">
+        <label for="message">বার্তা (ঐচ্ছিক)</label>
+        <textarea id="message" name="message" placeholder="যদি কোনো বিশেষ নির্দেশনা থাকে লিখুন..."></textarea>
+      </div>
+
+      <div id="formMsg" class="success full">✅ ধন্যবাদ! আপনার তথ্য পাওয়া গেছে। খুব শীঘ্রই যোগাযোগ করা হবে।</div>
+    </form>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>
