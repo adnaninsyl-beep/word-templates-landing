@@ -412,10 +412,10 @@
   // ====== Config ======
   const DISCOUNT_RATE = 0.20; // পুরনো দাম ~ ফাইনাল দামের চেয়ে ~20% বেশি দেখাবে
   const BKASH_PAYMENT_URL = "https://shop.bkash.com/shah-malum-air-service01710461/paymentlink/default-payment?fbclid=IwVERDUAM9xpdleHRuA2FlbQIxMAABHsO9IZ7e1tkmWd6xEcgt_lkntCoY4sGHEUOFsUBFw2MvO-VHRV8SbGSaum6y_aem_6VjZ7QPYo0qUkvAtUTvUDg";
-  // ✅ ওপরের লিংকটাই আপনার দেওয়া bKash লিংক
+  // ✅ আপনার দেওয়া bKash লিংক
 
-  const AUTO_DOWNLOAD_URL = "https://your-cdn.com/files/word-templates.zip";
-  // ⬆️ এখানে আপনার আসল Word ফাইল/ZIP-এর ডাইরেক্ট ডাউনলোড লিংক দিন
+  const AUTO_DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=19qbqwL6-Q4SlhjQbORContqkiWea2eLd";
+  // ✅ আপনার Google Drive ডাইরেক্ট ডাউনলোড লিংক
 
   // Year
   document.getElementById('year').textContent=new Date().getFullYear();
@@ -450,7 +450,6 @@
   (function autoDownloadIfPaid(){
     const params = new URLSearchParams(window.location.search);
     if(params.get('paid') === '1'){
-      // সামান্য ডিলে, যাতে পেজ স্টেবল হয়
       setTimeout(()=> triggerDownload(AUTO_DOWNLOAD_URL), 800);
     }
   })();
@@ -529,7 +528,6 @@
     update(); startAuto();
   })();
 </script>
-
   <!-- Reviews slider script (যেমন ছিল) -->
   <script>
     (function(){
