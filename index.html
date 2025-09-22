@@ -407,44 +407,128 @@
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M19.11 17.07c-.27-.14-1.58-.78-1.82-.86-.24-.09-.42-.14-.6.14-.18.27-.69.86-.85 1.04-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.56-1.48-1.82-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.45-.82-1.99-.22-.53-.44-.46-.6-.47h-.51c-.16 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.95 2.58 1.08 2.76c.14.18 1.87 2.85 4.52 3.98.63.27 1.12.43 1.5.55.63.2 1.21.17 1.67.1.51-.08 1.58-.65 1.8-1.28.22-.63.22-1.17.16-1.28-.06-.11-.24-.18-.51-.31z"/><path d="M26.6 5.39C23.76 2.54 20.05 1 16.11 1 8.29 1 1.97 7.32 1.97 15.14c0 2.44.64 4.82 1.86 6.91L1 31l9.12-2.39c2.04 1.11 4.35 1.7 6.69 1.7h.01c7.82 0 14.14-6.32 14.14-14.14 0-3.77-1.47-7.33-4.26-10.08zM16.82 28.4h-.01c-2.14 0-4.23-.57-6.05-1.65l-.43-.26-5.41 1.42 1.45-5.27-.28-.46c-1.16-1.88-1.77-4.04-1.77-6.26 0-6.56 5.34-11.9 11.9-11.9 3.18 0 6.17 1.24 8.41 3.48 2.24 2.24 3.48 5.23 3.48 8.41 0 6.56-5.34 11.9-11.9 11.9z"/></svg>
   </a>
 
-  <!-- Scripts -->
-  <script>
-    // ====== Config ======
-    const DISCOUNT_RATE = 0.20; // 20% off => পুরনো দাম ~ বর্তমান দামের চেয়ে ২০% বেশি দেখাবে
-    const BKASH_PAYMENT_URL = "https://example.com/your-bkash-payment-link"; 
-    // ↑↑ এখানে আপনার আসল বিকাশ পেমেন্ট লিংক বসান
+<!-- Scripts -->
+<script>
+  // ====== Config ======
+  const DISCOUNT_RATE = 0.20; // পুরনো দাম ~ ফাইনাল দামের চেয়ে ~20% বেশি দেখাবে
+  const BKASH_PAYMENT_URL = "https://shop.bkash.com/shah-malum-air-service01710461/paymentlink/default-payment?fbclid=IwVERDUAM9xpdleHRuA2FlbQIxMAABHsO9IZ7e1tkmWd6xEcgt_lkntCoY4sGHEUOFsUBFw2MvO-VHRV8SbGSaum6y_aem_6VjZ7QPYo0qUkvAtUTvUDg";
+  // ✅ ওপরের লিংকটাই আপনার দেওয়া bKash লিংক
 
-    // Year
-    document.getElementById('year').textContent=new Date().getFullYear();
+  const AUTO_DOWNLOAD_URL = "https://your-cdn.com/files/word-templates.zip";
+  // ⬆️ এখানে আপনার আসল Word ফাইল/ZIP-এর ডাইরেক্ট ডাউনলোড লিংক দিন
 
-    // Form success note
-    const form = document.getElementById('orderForm');
-    const formMsg = document.getElementById('formMsg');
-    form.addEventListener('submit', function(){ setTimeout(()=>{formMsg.style.display='block'}, 500); });
+  // Year
+  document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Pricing old price auto-calc
-    document.querySelectorAll('.price-card').forEach(card=>{
-      const final = parseFloat(card.getAttribute('data-final'));
-      const oldVal = Math.round(final / (1 - DISCOUNT_RATE));
-      card.querySelector('.old-val').textContent = oldVal;
-      card.querySelector('.new-val').textContent = final;
-    });
+  // Form success note
+  const form = document.getElementById('orderForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(){ setTimeout(()=>{formMsg.style.display='block'}, 500); });
 
-    // bKash click handler
-    function payNow(el){
-      const item = el.getAttribute('data-item') || 'Unknown';
-      try {
-        fbq('track','InitiateCheckout', {content_name: item});
-      } catch(e) {}
-      if(!BKASH_PAYMENT_URL || BKASH_PAYMENT_URL.indexOf('example.com')!==-1){
-        alert('পেমেন্ট লিংক কনফিগার করা হয়নি। কোডে BKASH_PAYMENT_URL আপডেট করুন।');
-        return false;
-      }
-      window.location.href = BKASH_PAYMENT_URL;
-      return false;
+  // Pricing old price auto-calc
+  document.querySelectorAll('.price-card').forEach(card=>{
+    const final = parseFloat(card.getAttribute('data-final'));
+    const oldVal = Math.round(final / (1 - DISCOUNT_RATE));
+    card.querySelector('.old-val').textContent = oldVal;
+    card.querySelector('.new-val').textContent = final;
+  });
+
+  // ====== Auto Download Helper ======
+  function triggerDownload(url){
+    if(!url){ return; }
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    try { fbq('track','Purchase',{value:79,currency:'BDT'}); } catch(e){}
+  }
+
+  // পেজে ?paid=1 এলে অটো-ডাউনলোড হবে
+  (function autoDownloadIfPaid(){
+    const params = new URLSearchParams(window.location.search);
+    if(params.get('paid') === '1'){
+      // সামান্য ডিলে, যাতে পেজ স্টেবল হয়
+      setTimeout(()=> triggerDownload(AUTO_DOWNLOAD_URL), 800);
     }
-    window.payNow = payNow;
-  </script>
+  })();
+
+  // ====== bKash click handler ======
+  function payNow(el){
+    const item = el.getAttribute('data-item') || 'Unknown';
+    try { fbq('track','InitiateCheckout', {content_name: item}); } catch(e) {}
+
+    // 1) bKash লিংক নতুন ট্যাবে ওপেন
+    window.open(BKASH_PAYMENT_URL, '_blank');
+
+    // 2) ইউজারকে ইঙ্গিত: পেমেন্ট শেষে এই পেজে ফিরে এলে অটো ডাউনলোড হবে
+    const confirmed = confirm('পেমেন্ট সম্পন্ন হলে, এই পেজে ফিরে এলে ফাইলটি অটো-ডাউনলোড হবে। এখন কি “আমি পেমেন্ট করেছি” চাপতে চান?');
+    if(confirmed){
+      triggerDownload(AUTO_DOWNLOAD_URL);
+    }
+    return false;
+  }
+  window.payNow = payNow;
+</script>
+
+<!-- Reviews slider script (যেমন ছিল) -->
+<script>
+  (function(){
+    const slider = document.getElementById('rvSlider');
+    if(!slider) return;
+
+    const track = slider.querySelector('.rv-track');
+    const slides = Array.from(slider.querySelectorAll('.rv-slide'));
+    const prev  = slider.querySelector('.rv-prev');
+    const next  = slider.querySelector('.rv-next');
+    const dotsWrap = document.getElementById('rvDots');
+
+    let i = 0, autoTimer = null;
+
+    // make dots
+    slides.forEach((_, idx)=>{
+      const d = document.createElement('span');
+      d.className = 'rv-dot' + (idx===0 ? ' active':'');
+      d.addEventListener('click', ()=>go(idx));
+      dotsWrap.appendChild(d);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function update(){
+      track.style.transform = `translateX(-${i*100}%)`;
+      dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
+    }
+    function go(n){
+      i = (n + slides.length) % slides.length;
+      update();
+      restartAuto();
+    }
+    function nextFn(){ go(i+1); }
+    function prevFn(){ go(i-1); }
+
+    prev.addEventListener('click', prevFn);
+    next.addEventListener('click', nextFn);
+
+    function startAuto(){ autoTimer = setInterval(nextFn, 4000); }
+    function stopAuto(){ clearInterval(autoTimer); }
+    function restartAuto(){ stopAuto(); startAuto(); }
+
+    // Pause on hover (desktop)
+    slider.addEventListener('mouseenter', stopAuto);
+    slider.addEventListener('mouseleave', startAuto);
+
+    // Swipe (mobile)
+    let sx=0, dx=0;
+    slider.addEventListener('touchstart', e=>{ sx=e.touches[0].clientX; }, {passive:true});
+    slider.addEventListener('touchmove',  e=>{ dx=e.touches[0].clientX - sx; }, {passive:true});
+    slider.addEventListener('touchend',   ()=>{ if(Math.abs(dx)>40){ dx<0? nextFn():prevFn(); } dx=0; });
+
+    // init
+    update(); startAuto();
+  })();
+</script>
 
   <!-- Reviews slider script (যেমন ছিল) -->
   <script>
